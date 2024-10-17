@@ -1,0 +1,11 @@
+TrainingID,TrainingName,Description,TrainingProvider,TrainingDate,TrainingStatus,TrainingType
+6001,Caregiving Basics,Basic caregiving skills,Care Institute,2022-10-15,Completed,In-Home
+6002,Community Engagement,Techniques for community involvement,Outreach Academy,2023-01-20,Completed,Community Access
+6003,Mental Health Support,Counseling skills for mental health,Mental Health Academy,2023-03-10,Ongoing,Mental Health
+6004,Physical Therapy,Training on physical therapy techniques,Therapy Institute,2023-05-12,Completed,Physical Therapy
+6005,Cognitive Rehabilitation,Exercises to enhance cognitive abilities,Cognitive Academy,2023-07-15,Ongoing,Cognitive
+6006,Rehabilitation Techniques,Methods for rehabilitation support,Rehab Academy,2023-08-10,Completed,Rehabilitation
+6007,Group Therapy Facilitation,Techniques for running group therapies,Group Care Institute,2023-09-25,Completed,Group Therapy
+6008,Vision Support,Assisting vision-impaired individuals,Sensory Support Center,2023-04-01,Completed,Sensory Support
+6009,Personal Care Training,Techniques for personal care,Personal Care Academy,2023-06-10,Completed,Personal
+6010,Advanced Counseling Skills,Advanced skills in counseling,Counseling Academy,2023-11-15,Ongoing,Mental Health

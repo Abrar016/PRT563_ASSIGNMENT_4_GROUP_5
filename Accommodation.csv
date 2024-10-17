@@ -1,0 +1,11 @@
+AccommodationID,Street,City,State,PostalCode,Size,Status,Rent,Capacity,Facilities,ServiceID
+7001,789 Shelter Ave,Health City,NSW,2000,120,Available,1200,5,"Wheelchair Access, Garden",4001
+7002,101 Safehouse Dr,Service Town,VIC,3000,90,Occupied,1500,3,"Wheelchair Access, Garden",4005
+7003,456 Pine St,Wellness City,QLD,4000,80,Available,1100,4,"Wheelchair Access, Recreation Room",4007
+7004,789 Elm St,Life Town,WA,6000,100,Occupied,1300,5,"Wheelchair Access, Outdoor Space",4008
+7005,951 Maple Rd,Care City,SA,5000,75,Available,1050,2,"Wheelchair Access, Garden",4009
+7006,357 Oak Ave,Hope Town,ACT,2600,85,Available,1250,3,"Recreation Room, Garden",4009
+7007,258 Willow Ln,Mind City,NT,0800,90,Occupied,1350,4,"Wheelchair Access, Garden",4008
+7008,159 Cedar St,Brave City,TAS,7000,95,Available,1450,5,"Wheelchair Access, Recreation Room",4007
+7009,357 Birch St,Guiding Town,NSW,2001,105,Occupied,1550,6,"Wheelchair Access, Outdoor Space",4005
+7010,123 Oak Dr,Strong Town,VIC,3001,110,Available,1400,4,"Wheelchair Access, Garden",4001

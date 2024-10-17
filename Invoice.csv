@@ -1,0 +1,11 @@
+InvoiceID,AccommodationID,VehicleNumber,Date,TotalAmount,StartTime,EndTime,DueDate,Description,PaymentStatus,PaymentMethod,BalanceDue,ReceiptNumber,ServiceProviderID
+8001,7001,9001,4/10/2023,250,10:00,14:00,4/15/2023,In-Home Care Service,Paid,Credit Card,0,RCPT001,1001
+8002,7002,9002,5/12/2023,300,9:00,13:00,5/17/2023,Community Support Service,Unpaid,Bank Transfer,150,RCPT002,1002
+8003,7003,,6/20/2023,275,8:00,12:00,6/25/2023,Mental Health Counseling,Paid,Cash,0,RCPT003,1003
+8004,7004,9003,7/14/2023,325,10:00,15:00,7/19/2023,Vision Support,Paid,Credit Card,0,RCPT004,1004
+8005,7005,9004,8/9/2023,200,11:00,14:00,8/14/2023,Physical Therapy,Unpaid,Credit Card,100,RCPT005,1008
+8006,7006,9005,9/15/2023,180,9:00,13:00,9/20/2023,Cognitive Exercises,Paid,Debit Card,0,RCPT006,1006
+8007,7007,,10/1/2023,400,10:00,14:00,10/6/2023,Rehabilitation Support,Paid,Cash,0,RCPT007,1005
+8008,7008,9006,11/5/2023,225,9:00,12:00,11/10/2023,Group Engagement,Paid,Bank Transfer,0,RCPT008,1007
+8009,7009,9007,12/15/2023,280,8:00,13:00,12/20/2023,Personal Development Workshops,Unpaid,Bank Transfer,140,RCPT009,1009
+8010,7010,,1/10/2024,350,10:00,16:00,1/15/2024,Mental Health Counseling,Paid,Credit Card,0,RCPT010,1010

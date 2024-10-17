@@ -1,0 +1,11 @@
+VehicleNumber,VehicleType,Make,Model,FuelType,VehicleStatus,AccommodationID
+9001,Van,Ford,Transit,Diesel,Active,7001
+9002,Car,Toyota,Camry,Petrol,Active,7002
+9003,Minibus,Mercedes,Sprinter,Diesel,Active,7003
+9004,Car,Honda,Accord,Petrol,Active,7004
+9005,Van,Volkswagen,Transporter,Diesel,Active,7005
+9006,Car,Hyundai,Elantra,Petrol,Active,7006
+9007,Van,Ford,Transit,Diesel,Active,7007
+9008,Car,Nissan,Altima,Petrol,Active,7008
+9009,Minibus,Mercedes,Sprinter,Diesel,Active,7009
+9010,Car,Mazda,6,Petrol,Active,7010

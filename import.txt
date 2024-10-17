@@ -1,0 +1,185 @@
+//NODE CREATION AND LOADING CSV
+LOAD CSV WITH HEADERS FROM "file:///Client.csv" AS row
+CREATE (n:Client)
+SET n = row,
+n.Age = toInteger(row.Age);
+
+
+LOAD CSV WITH HEADERS FROM "file:///Accommodation.csv" AS row
+CREATE (n:Accommodation)
+SET n = row,
+n.AccommodationID = toInteger(row.AccommodationID), n.ServiceID = toInteger(row.ServiceID),
+n.Size = toInteger(row.Size),n.Capacity = toInteger(row.Capacity);
+
+LOAD CSV WITH HEADERS FROM "file:///CommunityAccess.csv" AS row
+CREATE (n:CommunityAccess)
+SET n = row,
+n.SupportWorkerID = toInteger(row.SupportWorkerID);
+
+LOAD CSV WITH HEADERS FROM "file:///C_CONTACT.csv" AS row
+CREATE (n:C_CONTACT)
+SET n = row;
+
+
+LOAD CSV WITH HEADERS FROM "file:///Contact_SW.csv" AS row
+CREATE (n:Contact_SW)
+SET n = row,
+n.SupportWorkerID = toInteger(row.SupportWorkerID);
+
+
+LOAD CSV WITH HEADERS FROM "file:///Email_SW.csv" AS row
+CREATE (n:Email_SW)
+SET n = row,
+n.SupportWorkerID = toInteger(row.SupportWorkerID);
+
+LOAD CSV WITH HEADERS FROM "file:///Funding.csv" AS row
+CREATE (n:Funding)
+SET n = row,
+n.FundingID = toInteger(row.FundingID), n.ServiceProviderID = toInteger(row.ServiceProviderID),
+n.FundingPeriod = toInteger(row.FundingPeriod),n.FundingAmount = toFloat(row.FundingAmount);
+
+LOAD CSV WITH HEADERS FROM "file:///Language_SW.csv" AS row
+CREATE (n:Language_SW)
+SET n = row,
+n.SupportWorkerID = toInteger(row.SupportWorkerID);
+
+
+LOAD CSV WITH HEADERS FROM "file:///InHome.csv" AS row
+CREATE (n:InHome)
+SET n = row,
+n.SupportWorkerID = toInteger(row.SupportWorkerID);
+
+LOAD CSV WITH HEADERS FROM "file:///Personal.csv" AS row
+CREATE (n:Personal)
+SET n = row,
+n.SupportWorkerID = toInteger(row.SupportWorkerID);
+
+LOAD CSV WITH HEADERS FROM "file:///Invoice.csv" AS row
+CREATE (n:Invoice)
+SET n = row,
+n.InvoiceID = toInteger(row.InvoiceID), n.ServiceProviderID = toInteger(row.ServiceProviderID),
+n.AccommodationID = toInteger(row.AccommodationID);
+
+LOAD CSV WITH HEADERS FROM "file:///ServiceProvider.csv" AS row
+CREATE (n:ServiceProvider)
+SET n = row,
+n.ServiceProviderID = toInteger(row.ServiceProviderID);
+
+LOAD CSV WITH HEADERS FROM "file:///Services.csv" AS row
+CREATE (n:Services)
+SET n = row,
+n.ServiceID = toInteger(row.ServiceID);
+
+LOAD CSV WITH HEADERS FROM "file:///Vehicle.csv" AS row
+CREATE (n:Vehicle)
+SET n = row,
+n.AccommodationID = toInteger(row.AccommodationID);
+
+
+LOAD CSV WITH HEADERS FROM "file:///SupportWorker.csv" AS row
+CREATE (n:SupportWorker)
+SET n = row,
+n.SupportWorkerID = toInteger(row.SupportWorkerID);
+
+
+LOAD CSV WITH HEADERS FROM "file:///Training.csv" AS row
+CREATE (n:Training)
+SET n = row,
+n.TrainingID = toInteger(row.TrainingID);
+
+
+LOAD CSV WITH HEADERS FROM "file:///Agreement.csv" AS row
+CREATE (n:Agreement)
+SET n = row,
+n.ServiceProviderID = toInteger(row.ServiceProviderID), n.ServiceID = toInteger(row.ServiceID),
+n.AgreementID = toInteger(row.AgreementID);
+
+
+//CREATE RELATIONS OR LINKS
+MATCH (f:Funding),(sp:ServiceProvider)
+WHERE f.ServiceProviderID = sp.ServiceProviderID
+CREATE (sp)<-[:receives]-(f);
+
+
+MATCH (i:Invoice),(sp:ServiceProvider)
+WHERE i.ServiceProviderID = sp.ServiceProviderID
+CREATE (i)-[:sent_to]->(sp);
+
+
+MATCH (i:Invoice),(v:Vehicle)
+WHERE i.VehicleNumber = v.VehicleNumber
+CREATE (v)-[:generates]->(i);
+
+MATCH (i:Invoice),(a:Accommodation)
+WHERE i.AccommodationID = a.AccommodationID
+CREATE (a)-[:generates]->(i);
+
+MATCH (v:Vehicle),(a:Accommodation)
+WHERE v.AccommodationID = a.AccommodationID
+CREATE (v)-[:belongs_to]->(a);
+
+MATCH (s:Services),(a:Accommodation)
+WHERE a.ServiceID = s.ServiceID
+CREATE (s)-[:includes]->(a);
+
+LOAD CSV WITH HEADERS FROM "file:///ParticipatesIn.csv" AS row
+MATCH (sw:SupportWorker),(t:Training)
+WHERE sw.SupportWorkerID = toInteger(row.SupportWorkerID) AND t.TrainingID = toInteger(row.TrainingID)
+CREATE (sw)-[participates:Participates_In]->(t)
+SET participates = row,
+    participates.SupportWorkerID = toInteger(row.SupportWorkerID),
+    participates.TrainingID = toInteger(row.TrainingID);
+
+LOAD CSV WITH HEADERS FROM "file:///Assignment.csv" AS row
+MATCH (sp:ServiceProvider), (s:Services), (sw:SupportWorker)
+WHERE sp.ServiceProviderID = toInteger(row.ServiceProviderID) 
+  AND s.ServiceID = toInteger(row.ServiceID)
+  AND sw.SupportWorkerID = toInteger(row.SupportWorkerID)
+CREATE (s)-[:Assigned_to]->(a:Assignment)<-[:assigns]-(sp),
+       (sw)-[:completes]->(a)
+SET a = row;
+
+// Link 'SupportWorker' to 'Personal' Specialization
+MATCH (sw:SupportWorker), (p:Personal)
+WHERE sw.SupportWorkerID = p.SupportWorkerID
+CREATE (sw)-[:HAS_SPECIALIZATION]->(p);
+
+// Link 'SupportWorker' to 'CommunityAccess' Specialization
+MATCH (sw:SupportWorker), (ca:CommunityAccess)
+WHERE sw.SupportWorkerID = ca.SupportWorkerID
+CREATE (sw)-[:HAS_SPECIALIZATION]->(ca);
+
+// Link 'SupportWorker' to 'InHome' Specialization
+MATCH (sw:SupportWorker), (ih:InHome)
+WHERE sw.SupportWorkerID = ih.SupportWorkerID
+CREATE (sw)-[:HAS_SPECIALIZATION]->(ih);
+
+MATCH (c:Client), (cc:C_CONTACT)
+WHERE c.NDISNo = cc.NDISNo
+CREATE (c)-[:has]->(cc);
+
+MATCH (sw:SupportWorker), (csw:Contact_SW)
+WHERE sw.SupportWorkerID = csw.SupportWorkerID
+CREATE (sw)-[:has]->(csw);
+
+MATCH (sw:SupportWorker), (esw:Email_SW)
+WHERE sw.SupportWorkerID = esw.SupportWorkerID
+CREATE (sw)-[:has]->(esw);
+
+MATCH (sw:SupportWorker), (lsw:Language_SW)
+WHERE sw.SupportWorkerID = lsw.SupportWorkerID
+CREATE (sw)-[:can_speak]->(lsw);
+
+MATCH(c:Client),(a:Agreement)
+WHERE c.NDISNo = a.NDISNo
+CREATE (c)-[:participates_in]->(a);
+
+MATCH (sp:ServiceProvider),(a:Agreement)
+WHERE sp.ServiceProviderID = a.ServiceProviderID
+CREATE (sp)-[:participates_in]->(a);
+
+MATCH (s:Services),(a:Agreement)
+WHERE s.ServiceID = a.ServiceID
+CREATE (a)-[:results_in]->(s);
+
+

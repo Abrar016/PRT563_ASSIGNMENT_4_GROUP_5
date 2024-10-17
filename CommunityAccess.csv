@@ -1,0 +1,11 @@
+SupportWorkerID,Region,MobilityAssistance,CommunityEngagement
+5002,Urban,Wheelchair Access,Community Activities
+5005,Rural,Walking Assistance,Village Engagement
+5008,Urban,Public Transport,City Engagement
+5007,Suburban,Walking Assistance,Local Workshops
+5003,Rural,None,Small Group Engagement
+5010,Urban,None,Large Group Engagement
+5009,Suburban,Wheelchair Access,Local Events
+5006,Urban,Public Transport,Community Support
+5001,Rural,None,Village Activities
+5004,Suburban,Walking Assistance,Community Service

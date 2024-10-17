@@ -1,0 +1,6 @@
+FundingID,FundingType,FundingPeriod,FundingAmount,ServiceProviderID
+10001,NDIA,2023,50000,1001
+10002,Plan Managed,2023,20000,1002
+10003,Self-Managed,2024,15000,1001
+10004,NDIA,2024,75000,1003
+10005,Plan Managed,2025,30000,1004

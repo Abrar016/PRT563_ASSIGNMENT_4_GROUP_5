@@ -1,0 +1,11 @@
+ServiceID,ServiceName,Description,ServiceType,ServiceStartDate,ServiceEndDate
+4001,In-Home Care,Personal care for clients in their homes,Personal,2023-01-10,2023-12-10
+4002,Community Support,Assistance with community activities,Community Access,2023-03-20,2024-03-20
+4003,Mental Health Counseling,Counseling services for mental health support,Mental Health,2023-04-15,2024-04-15
+4004,Vision Support,Support for vision-impaired individuals,Sensory,2023-06-15,2024-06-15
+4005,Physical Therapy,Therapy for physical recovery,Physical,2023-05-20,2024-05-20
+4006,Cognitive Exercises,Exercises to enhance cognitive abilities,Cognitive,2023-07-20,2024-07-20
+4007,Rehabilitation Support,Rehabilitation services for recovery,Physical,2023-08-15,2024-08-15
+4008,Group Engagement,Group activities for community involvement,Community Access,2023-09-10,2024-09-10
+4009,Workshops,Personal development workshops,Personal,2023-10-05,2024-10-05
+4010,Counseling,Mental health counseling services,Mental Health,2023-11-01,2024-11-01
